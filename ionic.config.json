@@ -1,0 +1,7 @@
+{
+  "name": "gadgetVillageApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

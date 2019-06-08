@@ -1,0 +1,7 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "gadgetVillageApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
