@@ -9,3 +9,13 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+@import url('https://fonts.googleapis.com/css?family=Muli|Ubuntu&display=swap');
+*, pre{
+    font-family: 'Muli', sans-serif;
+}
+@import './assets/sass/sections';
+
+.split-pane-visible >.split-pane-side {
+    min-width: 250px !important;
+    max-width: 250px !important;
+}

@@ -4,3 +4,74 @@
 // styles are for the entire app and not just one component. Additionally, this 
 // file can hold Sass mixins, functions, and placeholder classes to be imported 
 // and used throughout the application.
+.example {
+    color: var(--ion-color-primary);
+}
+
+.align-center {
+    text-align: center;
+  }
+  
+  .highlight {
+    background-color: #f4f4f4;
+  }
+  
+  .center {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .vertical-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .top-radius {
+    border-radius: 10% 10% 0 0;
+  }
+  
+  .bottom-radius {
+    border-radius: 0 0 10% 10%;
+  }
+  
+  .round {
+    border-radius: 50%;
+  }
+
+  #menu-material {
+    .menu-header {
+      padding: 5px 15px;
+      background: var(--ion-color-primary);
+      background: -webkit-linear-gradient(to left, var(--ion-color-secondary), var(--ion-color-primary));
+      background: -webkit-linear-gradient(right, var(--ion-color-secondary), var(--ion-color-primary));
+      background: -webkit-gradient(linear, right top, left top, from(var(--ion-color-secondary)), to(var(--ion-color-primary)));
+      background: -o-linear-gradient(right, var(--ion-color-secondary), var(--ion-color-primary));
+      background: linear-gradient(to left, var(--ion-color-secondary), var(--ion-color-primary));
+      color: white;
+      .name {
+        font-weight: 500;
+        margin-bottom: 3px;
+        padding-left: 15px;
+      }
+      .e-mail {
+        margin-top: 0;
+        margin-bottom: 5px;
+        padding-left: 15px;
+      }
+    }
+    .user-avatar {
+      max-width: 125px;height: 125px;
+      padding: .5em;
+      height: 12vh;
+    }
+    h3,
+    .label
+    {
+      color: #999;
+      font-weight: 400;
+    }
+    ion-icon {
+      color: #777;
+    }
+  }

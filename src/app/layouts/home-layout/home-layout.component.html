@@ -1,0 +1,32 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu side="start" type="overlay" menuId="custom" id="menu-material" class="my-custom-menu">
+      <ion-content>
+        <div class="menu-header">
+          <!--material-design-background-->
+          <img class="user-avatar round" style="height:90px;max-width:90px;" [src]="chosenPicture || placeholder" onerror="this.src='assets/imgs/no-image.jpg'"
+          />
+          <p class="name">OST</p>
+          <p class="e-mail">opensourcetechnologies.com</p>
+        </div>
+        <ion-list no-lines>
+          <!-- <ion-item menuClose="left" lines='none' button detail-none *ngFor="let p of pages" (click)="openPage(p)">
+            <ion-icon [name]="p.icon" slot="start"></ion-icon>
+            {{p.title}}
+          </ion-item> -->
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+            <ion-item lines='none' [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
