@@ -7,13 +7,12 @@ const { Storage } = Plugins;
 })
 export class StorageService {
 
-  constructor(private storage: Storage) { 
-    
+  constructor() {
   }
 
   // JSON "set" example
   async setObject(key: string, value: object) {
-    await this.storage.set({
+    await Storage.set({
       key: `${key}`,
       value: JSON.stringify(value)
     });
@@ -21,19 +20,19 @@ export class StorageService {
   
   // JSON "get" example
   async getObject(key) {
-    const ret = await this.storage.get({ key: `${key}` });
+    const ret = await Storage.get({ key: `${key}` });
     return JSON.parse(ret.value);
   }
   
   async setItem(key: string, value: string) {
-    await this.storage.set({
+    await Storage.set({
       key: `${key}`,
       value: `${value}`
     });
   }
   
   async getItem(key: string) {
-    const value = await this.storage.get({ key: `${key}` });
+    const value = await Storage.get({ key: `${key}` });
     return value;
   }
   
@@ -42,11 +41,11 @@ export class StorageService {
   }
   
   async keys() {
-    const keys = await this.storage.keys();
+    const keys = await Storage.keys();
     return keys;
   }
 
   async clear() {
-    await this.storage.clear();
+    await Storage.clear();
   }
 }

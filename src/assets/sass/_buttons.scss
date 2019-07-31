@@ -1,0 +1,11 @@
+ion-button[color="white"] {
+    --color: var(--ion-color-primary-rgb) !important;
+    --color-activated: var(--ion-color-primary-rgb);
+    --color-focused: var(--ion-color-primary-rgb);
+    --color-hover: var(--ion-color-primary-rgb);
+    --background: var(--ion-color-white-rgb);
+    --background-activated: var(--ion-color-white-rgb);
+    --background-focused: var(--ion-color-white-rgb);
+    --background-hover: var(--ion-color-white-rgb);
+    --border-color: var(--ion-color-white-rgb);
+}

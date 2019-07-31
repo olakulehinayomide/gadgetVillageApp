@@ -1,7 +1,8 @@
 import { ILogin } from './i-login';
 
 export interface ISignup extends ILogin {
-    username: string;
-    fullname: string;
+    firstname: string;
+    lastname: string;
+    middlename: string;
     phoneNumber?: string;
 }

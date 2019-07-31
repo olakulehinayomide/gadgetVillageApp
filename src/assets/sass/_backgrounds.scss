@@ -1,0 +1,39 @@
+ion-content.bg {
+    padding: 0;
+    position: relative;
+}
+
+ion-content.bg-image{
+    --background: none;
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &.bg-image-secondary:before {
+        background-color: rgba(var(--ion-color-secondary-rgb), 0.7);
+    }
+
+    &.bg-image-primary:before {
+        background-color: rgba(var(--ion-color-primary-rgb), 0.7);
+    }
+
+    &.bg-image-light:before {
+        background-color: rgba(var(--ion-color-light-rgb), 0.2);
+    }
+
+    &:before{
+        content: "";
+        display: block;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+
+    & .container, & .content, & .container-fluid{
+        position: relative;
+        z-index: 2;
+    }
+}

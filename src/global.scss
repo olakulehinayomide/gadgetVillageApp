@@ -9,11 +9,15 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
-@import url('https://fonts.googleapis.com/css?family=Muli|Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,700,800,900&display=swap');
 *, pre{
     font-family: 'Muli', sans-serif;
 }
 @import './assets/sass/sections';
+@import './assets/sass/toast';
+@import './assets/sass/buttons';
+@import './assets/sass/inputs';
+@import './assets/sass/backgrounds';
 
 .split-pane-visible >.split-pane-side {
     min-width: 250px !important;

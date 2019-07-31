@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { IProduct } from 'src/app/interfaces/i-product';
 
 @Component({
   selector: 'app-products-list',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent implements OnInit {
-  @Input('products') products: any;
+  @Input() products: IProduct[];
   @Output() itemSelected = new EventEmitter();
 
   constructor() { }

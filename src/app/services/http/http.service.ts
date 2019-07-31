@@ -15,120 +15,116 @@ export class HttpService {
   	}
 
 	get(url: string, token?: string) {
-		let request_url = `${this.apiBaseUrl}${url}`
+		const requestUrl = `${this.apiBaseUrl}${url}`;
 		if (token === undefined || token === null || token === '') {
-			let httpOptionsForSignedUser = {
+			const httpOptionsForSignedUser = {
 	            headers: new HttpHeaders({ 
-	                'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
 	            })
 	          };
-        	return this.http.get(request_url, httpOptionsForSignedUser);
-		}
-		else {
-			let httpOptionsForSignedUser = {
+        	return this.http.get(requestUrl, httpOptionsForSignedUser);
+		} else {
+			const httpOptionsForSignedUser = {
 	            headers: new HttpHeaders({ 
-	                'Content-Type': 'application/json',
-	                'Authorization' : this.tokenKey + token
+                'Content-Type': 'application/json',
+                'Authorization' : this.tokenKey + token
 	            })
 	          };
-        	return this.http.get(request_url, httpOptionsForSignedUser);
+        	return this.http.get(requestUrl, httpOptionsForSignedUser);
 		}
 		
 	}
 
 	post(url: string, data: any, token?: string)  {
-		let request_url = `${this.apiBaseUrl}${url}`
+		const requestUrl = `${this.apiBaseUrl}${url}`;
 		if (token === undefined || token === null || token === '') {
-			let httpOptionsForSignedUser = {
-	            headers: new HttpHeaders({ 
-	                'Content-Type': 'application/json'
+			const httpOptionsForSignedUser = {
+	            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
 	            })
 	          };
-	        let body = JSON.stringify(data);
-	        return this.http.post(request_url, body, httpOptionsForSignedUser);
+			  const body = JSON.stringify(data);
+	        return this.http.post(requestUrl, body, httpOptionsForSignedUser);
 		}
 		else {
 
-			let httpOptionsForSignedUser = {
+			const httpOptionsForSignedUser = {
 	            headers: new HttpHeaders({ 
-	                'Content-Type': 'application/json',
-	                'Authorization' : this.tokenKey + token
+                'Content-Type': 'application/json',
+                'Authorization' : this.tokenKey + token
 	            })
 	          };
-	        let body = JSON.stringify(data);
-	        return this.http.post(request_url, body, httpOptionsForSignedUser);
+			  const body = JSON.stringify(data);
+	        return this.http.post(requestUrl, body, httpOptionsForSignedUser);
 		}
 	}
 
 	post_blob_response(url: string, data: any, token?: string)  {
-		let request_url = `${this.apiBaseUrl}${url}`
+		const requestUrl = `${this.apiBaseUrl}${url}`;
 		if (token === undefined || token === null || token === '') {
-			let httpOptionsForSignedUser = {
+			const httpOptionsForSignedUser = {
 	            headers: new HttpHeaders({ 
-	                'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
 	            }),
 	            responseType  : 'blob' as 'json'
-	          };
-	        let body = JSON.stringify(data);
-	        return this.http.post(request_url, body, httpOptionsForSignedUser);
+			};
+			const body = JSON.stringify(data);
+	        return this.http.post(requestUrl, body, httpOptionsForSignedUser);
 		}
 		else {
 
-			let httpOptionsForSignedUser = {
-        headers: new HttpHeaders({ 
-            'Content-Type': 'application/json',
-            'Authorization' : this.tokenKey + token
-        }),
-        responseType  : 'blob' as 'json'
-      };
-      let body = JSON.stringify(data);
-      return this.http.post(request_url, body, httpOptionsForSignedUser);
+			const httpOptionsForSignedUser = {
+				headers: new HttpHeaders({
+					'Content-Type': 'application/json',
+					'Authorization' : this.tokenKey + token
+				}),
+				responseType  : 'blob' as 'json'
+	      	};
+	      	const body = JSON.stringify(data);
+	      	return this.http.post(requestUrl, body, httpOptionsForSignedUser);
 		}
 	}
 
 	put(url: string, data: any, token?: string) {
-		let request_url = `${this.apiBaseUrl}${url}`
+		const requestUrl = `${this.apiBaseUrl}${url}`;
 		if (token === undefined || token === null || token === '') {
-			let httpOptionsForSignedUser = {
-	            headers: new HttpHeaders({ 
-	                'Content-Type': 'application/json'
+			const httpOptionsForSignedUser = {
+	            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
 	            })
 	          };
-	        let body = JSON.stringify(data);
-	        return this.http.put(request_url, body, httpOptionsForSignedUser);
-		}
-		else {
-
-			let httpOptionsForSignedUser = {
-	            headers: new HttpHeaders({ 
+			  const body = JSON.stringify(data);
+	        return this.http.put(requestUrl, body, httpOptionsForSignedUser);
+		} else {
+            const httpOptionsForSignedUser = {
+            	headers: new HttpHeaders({
 	                'Content-Type': 'application/json',
 	                'Authorization' : this.tokenKey + token
 	            })
-	          };
-	        let body = JSON.stringify(data);
-	        return this.http.put(request_url, body, httpOptionsForSignedUser);
+			};
+			const body = JSON.stringify(data);
+	        return this.http.put(requestUrl, body, httpOptionsForSignedUser);
 		}
 	}
 
 	delete(url: string, token?: string)  {
-		let request_url = `${this.apiBaseUrl}${url}`
+		const requestUrl = `${this.apiBaseUrl}${url}`;
 		if (token === undefined || token === null || token === '') {
-			let httpOptionsForSignedUser = {
+			const httpOptionsForSignedUser = {
 	            headers: new HttpHeaders({ 
-	                'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
 	            })
-	          };
-	        return this.http.delete(request_url, httpOptionsForSignedUser);
-		}
-		else {
+			};
+	        return this.http.delete(requestUrl, httpOptionsForSignedUser);
+		} else {
 
-			let httpOptionsForSignedUser = {
-	            headers: new HttpHeaders({ 
-	                'Content-Type': 'application/json',
-	                'Authorization' : this.tokenKey + token
+			const httpOptionsForSignedUser = {
+	            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization' : this.tokenKey + token
 	            })
-	          };
-	        return this.http.delete(request_url, httpOptionsForSignedUser);
+			};
+	        return this.http.delete(requestUrl, httpOptionsForSignedUser);
 		}
 	}
 }

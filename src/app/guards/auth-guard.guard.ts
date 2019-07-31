@@ -13,7 +13,7 @@ export class AuthGuardGuard implements CanActivate, CanActivateChild, CanLoad  {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let url: string = state.url;
+    const url: string = state.url;
 
     return this.checkLogin(url);
   }
@@ -23,24 +23,27 @@ export class AuthGuardGuard implements CanActivate, CanActivateChild, CanLoad  {
   }
 
   canLoad(route: Route): boolean {
-    let url = `/${route.path}`;
+    const url = `/${route.path}`;
 
     return this.checkLogin(url);
   }
 
   checkLogin(url: string): boolean {
     this.auth = this.storage.getAuth();
-    if (this.auth) { 
-      return true; 
-    }
-    else {
+    if (this.auth) {
+      if (this.auth.user.banks === 0 || this.auth.user.plans === 0) {
+        this.router.navigate(['/user/add-plan'], {});
+        return false;
+      }  else {
+        return true;
+      }
+    } else {
       // Store the attempted URL for redirecting
 
       // Navigate to the login page with extras
-      this.router.navigate(['/login'], {});
+      this.router.navigate(['/account/login'], {});
       return false;
     }
 
-      
   }
 }

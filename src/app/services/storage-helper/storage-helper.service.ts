@@ -3,16 +3,15 @@ import { StorageService } from '../storage/storage.service';
 import { Plugins } from '@capacitor/core';
 import { BehaviorSubject } from 'rxjs';
 
-const { Storage } = Plugins;
 @Injectable({
   providedIn: 'root'
 })
-export class StorageHelperService extends StorageService {
+export class StorageHelperService {
   authKey = 'auth';
-  currentToken = new BehaviorSubject(null)
+  currentToken = new BehaviorSubject(null);
 
-  constructor(storage: Storage) {
-    super(storage);
+  constructor(private storageService: StorageService) {
+
   }
 
   setToken(token) {
@@ -28,15 +27,15 @@ export class StorageHelperService extends StorageService {
   }
 
   async setAuth(value: object) {
-    await super.setObject(this.authKey, value);
+    await this.storageService.setObject(this.authKey, value);
   }
 
   async getAuth() {
-    const response = await super.getObject(this.authKey);
+    const response = await this.storageService.getObject(this.authKey);
     return response;
   }
 
   async removeAuth() {
-    await super.removeItem(this.authKey);
+    await this.storageService.removeItem(this.authKey);
   }
 }

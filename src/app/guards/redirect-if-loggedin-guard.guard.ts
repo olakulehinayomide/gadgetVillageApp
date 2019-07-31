@@ -37,7 +37,7 @@ export class RedirectIfLoggedinGuardGuard  implements CanActivate, CanActivateCh
     // this.authService.check_if_logged_in();
     if (this.auth) {
       // Navigate to the login page with extras
-      this.router.navigate(['/login'], {});
+      this.router.navigate(['/auth'], {});
       return false;
     } else {
       return true;

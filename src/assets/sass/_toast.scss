@@ -1,0 +1,22 @@
+ion-toast {
+    &.toast-error {
+        --background: var(--ion-color-tertiary);
+        --color: var(--ion-color-dark);
+        --button-color: var(--ion-color-dark);
+        font-weight: bold !important;
+    }
+
+    &.toast-success {
+        --background: var(--ion-color-tertiary);
+        --color: var(--ion-color-dark);
+        --button-color: var(--ion-color-dark);
+        font-weight: bold !important;
+    }
+
+    &.toast-app {
+        --background: var(--ion-color-tertiary);
+        --color: var(--ion-color-dark);
+        --button-color: var(--ion-color-dark);
+        font-weight: bold !important;
+    }
+}
