@@ -15,5 +15,13 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="homeService.doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="">
+    </ion-refresher-content>
+  </ion-refresher>
   <app-products-list [products]="homeService.products"></app-products-list>
 </ion-content>

@@ -1,4 +1,6 @@
 import { IMerchant } from './i-merchant';
+import { ICategory } from './i-category';
+import { ISubCategory } from './i-sub-category';
 
 export interface IProduct {
     _id: string;
@@ -12,6 +14,8 @@ export interface IProduct {
     bidding_start_date?: string;
     bidding_end_date?: string;
     merchant: IMerchant;
+    category: ICategory;
+    sub_category: ISubCategory;
     no_of_favorites: number;
     active?: boolean;
     created_at: string;

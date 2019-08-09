@@ -16,11 +16,11 @@
           </ion-item> -->
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
-            <ion-item lines='none' [routerDirection]="'root'" [routerLink]="[p.url]">
+            <ion-item style="font-weight: 800 !important;" lines='none' [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
+              <ion-text color="medium">
                 {{p.title}}
-              </ion-label>
+              </ion-text>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>

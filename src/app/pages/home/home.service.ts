@@ -31,4 +31,11 @@ export class HomeService {
       });
     });
   }
+
+  doRefresh(event) {
+
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
 }

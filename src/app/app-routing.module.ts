@@ -14,8 +14,8 @@ const routes: Routes = [
         loadChildren: './pages/home/home.module#HomePageModule'
       },
       {
-        path: 'list',
-        loadChildren: './list/list.module#ListPageModule'
+        path: 'products/:id',
+        loadChildren: './pages/product/product.module#ProductPageModule'
       }
     ]
   },
@@ -27,6 +27,10 @@ const routes: Routes = [
       
     ]
   },
+  { path: 'product', loadChildren: './pages/product/product.module#ProductPageModule' },
+  { path: 'login', loadChildren: './pages/account/login/login.module#LoginPageModule' },
+  { path: 'register', loadChildren: './pages/account/register/register.module#RegisterPageModule' },
+  { path: 'forgot-password', loadChildren: './pages/account/forgot-password/forgot-password.module#ForgotPasswordPageModule' },
       
 ];
 

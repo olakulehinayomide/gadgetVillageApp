@@ -1,0 +1,19 @@
+.text-xbg {
+    font-size: var(--font-xbg-size);
+}
+.text-bg {
+    font-size: var(--font-bg-size);
+}
+.text-md {
+    font-size: var(--font-md-size) !important;
+}
+.text-sm {
+    font-size: var(--font-sm-size) !important;
+}
+.text-xs {
+    font-size: var(--font-xs-size) !important;
+}
+
+.app-dot-separator {
+    background: var(--ion-color-primary); border-radius: 50%; display: inline-block; height: 6px; margin-left: 4px; width: 6px; margin-bottom: 3px;
+}
