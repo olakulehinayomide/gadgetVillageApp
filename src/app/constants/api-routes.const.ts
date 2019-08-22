@@ -5,5 +5,6 @@ export const apiRoutes = {
 	signinApi: 'login',
 	signupApi: 'register',
 	
-	getProductsApi: 'products'
+	getProductsApi: 'products',
+	getProductApi: 'products/' //concat with id
 }

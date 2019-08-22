@@ -16,7 +16,7 @@ export class HomeService {
               private navigator: NavigatorService,
               private utils: UtilsService) {}
 
-  getProducts() {
+  getProducts(refresher?: any) {
     this.utils.showLoader().then((loader) => {
       this.httpProduct.getProducts().subscribe((response: IHttpResponse) => {
         if (response.status === 'success') {
@@ -25,8 +25,10 @@ export class HomeService {
           this.utils.presentErrorToast(response.message);
         }
         this.utils.hideLoader();
+        if (refresher) {refresher.complete()}
       }, (err: Error) => {
         this.utils.hideLoader();
+        if (refresher) {refresher.complete()}
         this.utils.presentErrorToast(err.message);
       });
     });
@@ -35,7 +37,7 @@ export class HomeService {
   doRefresh(event) {
 
     setTimeout(() => {
-      event.target.complete();
+      this.getProducts(event.target);
     }, 2000);
   }
 }

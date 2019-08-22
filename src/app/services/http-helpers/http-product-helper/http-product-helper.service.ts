@@ -15,4 +15,8 @@ export class HttpProductHelperService {
   getProducts() {
     return this.http.get(apiRoutes.getProductsApi);
   }
+
+  getProduct(id: string) {
+    return this.http.get(apiRoutes.getProductApi + id);
+  }
 }

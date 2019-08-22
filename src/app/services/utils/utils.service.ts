@@ -74,4 +74,19 @@ export class UtilsService {
     });
     toast.present();
   }
+
+  async datePassed(start, end) {
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    const currentDate = new Date();
+    if (currentDate > startDate) {
+      if (currentDate < endDate) {
+        return {status: true, reason: 'within range'};
+      } else {
+        return {status: false, reason: 'passed'};
+      }
+    } else {
+      return {status: false, reason: 'lower'};
+    }
+  }
 }

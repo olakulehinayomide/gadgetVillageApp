@@ -2,14 +2,27 @@
 <ion-grid no-padding>
   <ion-row>
     <ion-col size="12" size-md="4" size-lg="3" *ngFor="let product of products">
-      <ion-card class="welcome-card">
+      <ion-card class="product-list-card">
         <a [routerLink]="['/products/' + product._id]"><ion-img src="/assets/imgs/phones/1.jpg"></ion-img></a>
-        <ion-card-header style="padding-bottom: 0;">
-          <ion-chip color="secondary" outline="true" no-margin>
+        <div class="actions">
+          <ion-grid no-padding>
+            <ion-row>
+              <ion-col size="5" offset="7" text-right>
+                <ion-button color="primary" strong="true" [routerLink]="['/products/' + product._id]">
+                  <span *ngIf="product.type === 'auction'"><ion-icon slot="start" name="ios-wallet"></ion-icon> Auction</span>
+                  <span *ngIf="product.type === 'buy now'"><ion-icon slot="start" name="ios-cash"></ion-icon> Buy</span>
+                  <span *ngIf="product.type === 'buy now pay later'"><ion-icon slot="start" name="ios-cart"></ion-icon>Pay Later</span>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <ion-card-header style="padding-bottom: 0; padding-top: 0;">
+          <!-- <ion-chip color="secondary" outline="true" no-margin>
             <ion-label>{{product.category?.name}} <span class="app-dot-separator"></span> {{product.sub_category?.name}}</ion-label>
             <ion-icon name="close-circle"></ion-icon>
-          </ion-chip>
-          <a [routerLink]="['/products/' + product._id]"><ion-card-title class="product-title trunc">{{product.title}}</ion-card-title></a>
+          </ion-chip> -->
+          <a [routerLink]="['/products/' + product._id]"><ion-card-title class="product-title trunc">{{product.title}}&nbsp;<span class="app-dot-separator"></span>&nbsp;<span class="product-category">{{product.sub_category?.name}}</span></ion-card-title></a>
         </ion-card-header>
         <ion-card-content>
           <div>

@@ -1,6 +1,7 @@
 import { IMerchant } from './i-merchant';
 import { ICategory } from './i-category';
 import { ISubCategory } from './i-sub-category';
+import { IReviews } from './i-reviews';
 
 export interface IProduct {
     _id: string;
@@ -18,6 +19,7 @@ export interface IProduct {
     sub_category: ISubCategory;
     no_of_favorites: number;
     active?: boolean;
+    reviews: IReviews[];
     created_at: string;
     updated_at: string;
 }
