@@ -14,7 +14,8 @@ export class UtilsService {
   showLoader(message?: string): Promise<any> {
     return new Promise((resolve) => {
       this.loadingController.create({
-        message: message ? message : 'Please wait...'
+        message: message ? message : 'Please wait...',
+        duration: 15000
       }).then((res) => {
         this.loaderToShow = res;
         this.loaderToShow.present();

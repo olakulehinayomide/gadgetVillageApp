@@ -20,14 +20,16 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'auth',
+    path: '',
     component: AuthLayoutComponent,
     canActivate: [AuthGuardGuard],
     children: [
-      
+      {
+        path: 'products/:id/reviews',
+        loadChildren: './pages/product-reviews/product-reviews.module#ProductReviewsPageModule'
+      }
     ]
   },
-  { path: 'product', loadChildren: './pages/product/product.module#ProductPageModule' },
   { path: 'login', loadChildren: './pages/account/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './pages/account/register/register.module#RegisterPageModule' },
   { path: 'forgot-password', loadChildren: './pages/account/forgot-password/forgot-password.module#ForgotPasswordPageModule' },

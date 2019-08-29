@@ -18,39 +18,42 @@
       refreshingText="">
     </ion-refresher-content>
   </ion-refresher>
-  <ion-list>
-    <ion-list-header color="light">
-      <b>PRODUCT DETAILS</b>
-    </ion-list-header>
-    <div padding style="padding-top: 0 !important;">
-      <h6 class="heading">Description</h6>
-      <ion-text color="medium">
-        <pre>{{productService.product.description | trunc:descriptionTruncValue}}</pre>
-      </ion-text>
-      <div text-center *ngIf="productService.product.description.length > 400">
-        <ion-button color="primary" fill="clear" (click)="descriptionTruncValue = 400" *ngIf="descriptionTruncValue === 3000"><ion-icon name="arrow-dropup"></ion-icon> View less</ion-button>
-        <ion-button color="primary" fill="clear" (click)="descriptionTruncValue = 3000" *ngIf="descriptionTruncValue === 400"><ion-icon name="arrow-dropdown"></ion-icon> View more</ion-button>
+  <span *ngIf="productService.product">
+    
+    <ion-list>
+      <ion-list-header color="light">
+        <b>PRODUCT DETAILS</b>
+      </ion-list-header>
+      <div padding style="padding-top: 0 !important;">
+        <h6 class="heading">Description</h6>
+        <ion-text color="medium">
+          <pre>{{productService.product?.description | trunc:descriptionTruncValue}}</pre>
+        </ion-text>
+        <div text-center *ngIf="productService.product.description.length > 400">
+          <ion-button color="primary" fill="clear" (click)="descriptionTruncValue = 400" *ngIf="descriptionTruncValue === 3000"><ion-icon name="arrow-dropup"></ion-icon> View less</ion-button>
+          <ion-button color="primary" fill="clear" (click)="descriptionTruncValue = 3000" *ngIf="descriptionTruncValue === 400"><ion-icon name="arrow-dropdown"></ion-icon> View more</ion-button>
+        </div>
       </div>
-    </div>
-  </ion-list>
-
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <h4 color="medium" style="margin-top: 10px;"><b>Reviews</b></h4>
-      </ion-col>
-      <ion-col size="6" text-right>
-        <ion-button size="small" color="medium" fill="outline" shape="round" mode="ios" style="height: 30px;" [routerLink]="['/products/' + productService.product._id + '/reviews']">
-          <ion-icon name="create"></ion-icon> Write a review
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <app-reviews-list [reviews]="productService.product.reviews"></app-reviews-list>
+    </ion-list>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <h4 color="medium" style="margin-top: 10px;"><b>Reviews</b></h4>
+        </ion-col>
+        <ion-col size="6" text-right>
+          <ion-button size="small" color="medium" fill="outline" shape="round" mode="ios" style="height: 30px;" [routerLink]="['/products/' + productService.product._id + '/reviews']">
+            <ion-icon name="create"></ion-icon> Write a review
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <app-reviews-list [reviews]="productService.product?.reviews"></app-reviews-list>
+  </span>
 </ion-content>
 <ion-footer>
   <ion-grid no-padding>
-    <ion-row no-padding>
+    <ion-row no-padding *ngIf="productService.product">
       <ion-col size="8">
         <ion-button color="primary" expand="full" *ngIf="productService.product.type === 'auction'">Auction</ion-button>
         <ion-button color="primary" expand="full" *ngIf="productService.product.type === 'buy now'">Buy now</ion-button>

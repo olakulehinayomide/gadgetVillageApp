@@ -88,3 +88,33 @@ a {
     color: #777;
   }
 }
+
+ion-item-sliding[flexstart] .item.item-block.item-ios,
+ion-item[flexstart].item.item-block.item-ios,
+ion-item-sliding[flexstart] .item.item-block.item-md,
+ion-item[flexstart].item.item-block.item-md  {
+  display: flex !important;
+  align-items: flex-start!important; // <---- This does the trick!
+}
+
+ion-item[flexstart] ion-avatar {
+  margin-top: 0 !important;
+}
+
+ion-item ion-label, ion-item-sliding ion-label {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+ion-item[flexstart] ion-label, ion-item-sliding[flexstart] ion-label {
+  padding-top: 4px !important;
+}
+
+ion-item ion-note, ion-item-sliding ion-note {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+ion-item[flexstart] ion-note, ion-item-sliding[flexstart] ion-note {
+  padding-top: 10px !important;
+}
