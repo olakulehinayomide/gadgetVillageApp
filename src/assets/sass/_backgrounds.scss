@@ -1,9 +1,9 @@
-ion-content.bg {
-    padding: 0;
+.page-content.bg {
     position: relative;
+    min-height: 100%;
 }
 
-ion-content.bg-image{
+.page-content.bg-image{
     --background: none;
     background-position: center top;
     background-size: cover;
@@ -36,4 +36,11 @@ ion-content.bg-image{
         position: relative;
         z-index: 2;
     }
+}
+
+.page-content.register-bg {
+    background-position: left bottom !important; 
+    background-repeat: no-repeat !important; 
+    background-size: 250px 200px !important;
+    margin-bottom: 20px;
 }

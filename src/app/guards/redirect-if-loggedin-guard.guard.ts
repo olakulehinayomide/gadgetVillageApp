@@ -12,9 +12,7 @@ import { StorageHelperService } from '../services/storage-helper/storage-helper.
   providedIn: 'root'
 })
 export class RedirectIfLoggedinGuardGuard  implements CanActivate, CanActivateChild, CanLoad {
-  auth: any;
   constructor(private router: Router, private storage: StorageHelperService) {
-    this.auth = this.storage.getAuth();
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -33,14 +31,15 @@ export class RedirectIfLoggedinGuardGuard  implements CanActivate, CanActivateCh
     return this.checkLogin(url);
   }
 
-  checkLogin(url: string): boolean {
-    // this.authService.check_if_logged_in();
-    if (this.auth) {
-      // Navigate to the login page with extras
-      this.router.navigate(['/auth'], {});
-      return false;
-    } else {
-      return true;
-    }
+  checkLogin(url: string): any {
+    return this.storage.getAuth().then((auth) => {
+      if (auth) {
+        // Navigate to the login page with extras
+        this.router.navigate(['/auth'], {});
+        return false;
+      } else {
+        return true;
+      }
+    });
   }
 }

@@ -11,34 +11,28 @@ export class UtilsService {
   constructor(public loadingController: LoadingController, public toastCtrl: ToastController) {
   }
 
-  showLoader(message?: string): Promise<any> {
-    return new Promise((resolve) => {
-      this.loadingController.create({
-        message: message ? message : 'Please wait...',
-        duration: 15000
-      }).then((res) => {
-        this.loaderToShow = res;
-        this.loaderToShow.present();
-        this.loaderToShow.onDidDismiss().then((dis) => {
-          // console.log('Loading dismissed!');
-        });
+  showLoader(message?: string) {
+    this.loadingController.create({
+      message: message ? message : 'Please wait...',
+      duration: 15000,
+    }).then((res) => {
+      this.loaderToShow = res;
+      this.loaderToShow.present();
 
-        resolve(this.loaderToShow);
+      this.loaderToShow.onDidDismiss().then((dis) => {
+        // console.log('Loading dismissed!');
       });
     });
-
   }
 
   hideLoader() {
-    if (this.loaderToShow) {
-      this.loaderToShow.dismiss();
-    }
+    this.loaderToShow.dismiss();
   }
 
   async presentToast(messageValue) {
     const toast = await this.toastCtrl.create({
       message: messageValue,
-      position: 'bottom',
+      position: 'top',
       duration: 6000,
       cssClass: 'toast-app'
     });
@@ -48,7 +42,7 @@ export class UtilsService {
   async presentSuccessToast(messageValue) {
     const toast = await this.toastCtrl.create({
       message: messageValue,
-      position: 'bottom',
+      position: 'top',
       duration: 6000,
       cssClass: 'toast-success'
     });
@@ -58,7 +52,7 @@ export class UtilsService {
   async presentErrorToast(messageValue) {
     const toast = await this.toastCtrl.create({
       message: messageValue,
-      position: 'bottom',
+      position: 'top',
       animated: true,
       duration: 6000,
       cssClass: 'toast-error',
@@ -74,20 +68,5 @@ export class UtilsService {
       ]
     });
     toast.present();
-  }
-
-  async datePassed(start, end) {
-    const startDate = new Date(start);
-    const endDate = new Date(end);
-    const currentDate = new Date();
-    if (currentDate > startDate) {
-      if (currentDate < endDate) {
-        return {status: true, reason: 'within range'};
-      } else {
-        return {status: false, reason: 'passed'};
-      }
-    } else {
-      return {status: false, reason: 'lower'};
-    }
   }
 }

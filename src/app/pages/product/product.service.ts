@@ -22,20 +22,19 @@ export class ProductService {
   }
 
   getProduct(refresher?: any) {
-    this.utils.showLoader().then((loader) => {
-      this.httpProduct.getProduct(this.productId).subscribe((response: IHttpResponse) => {
-        if (response.status === 'success') {
-          this.product = response.data;
-        } else {
-          this.utils.presentErrorToast(response.message);
-        }
-        this.utils.hideLoader();
-        if (refresher) {refresher.complete()}
-      }, (err: Error) => {
-        this.utils.hideLoader();
-        if (refresher) {refresher.complete()}
-        this.utils.presentErrorToast(err.message);
-      });
+    this.utils.showLoader();
+    this.httpProduct.getProduct(this.productId).subscribe((response: IHttpResponse) => {
+      if (response.status === 'success') {
+        this.product = response.data;
+      } else {
+        this.utils.presentErrorToast(response.message);
+      }
+      this.utils.hideLoader();
+      if (refresher) {refresher.complete()}
+    }, (err: Error) => {
+      this.utils.hideLoader();
+      if (refresher) {refresher.complete()}
+      this.utils.presentErrorToast(err.message);
     });
   }
 

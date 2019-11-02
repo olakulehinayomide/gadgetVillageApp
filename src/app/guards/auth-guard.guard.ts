@@ -7,9 +7,7 @@ import { StorageHelperService } from '../services/storage-helper/storage-helper.
   providedIn: 'root'
 })
 export class AuthGuardGuard implements CanActivate, CanActivateChild, CanLoad  {
-  auth: any;
   constructor(private router: Router, private storage: StorageHelperService) {
-    this.auth = this.storage.getAuth();
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -28,22 +26,17 @@ export class AuthGuardGuard implements CanActivate, CanActivateChild, CanLoad  {
     return this.checkLogin(url);
   }
 
-  checkLogin(url: string): boolean {
-    this.auth = this.storage.getAuth();
-    if (this.auth) {
-      if (this.auth.user.banks === 0 || this.auth.user.plans === 0) {
-        this.router.navigate(['/user/add-plan'], {});
-        return false;
-      }  else {
+  checkLogin(url: string): any {
+    return this.storage.getAuth().then((auth) => {
+      if (auth) {
         return true;
+      } else {
+        // Store the attempted URL for redirecting
+
+        // Navigate to the login page with extras
+        this.router.navigate(['/login'], {});
+        return false;
       }
-    } else {
-      // Store the attempted URL for redirecting
-
-      // Navigate to the login page with extras
-      this.router.navigate(['/account/login'], {});
-      return false;
-    }
-
+    });
   }
 }

@@ -1,0 +1,36 @@
+.split-pane-visible >.split-pane-side {
+    min-width: 270px !important;
+    max-width: 270px !important;
+}
+
+ion-menu.my-custom-menu {
+
+    ion-icon.menu-icon[slot] {
+        margin-top: 10px !important;
+        margin-right: 10px !important;
+        margin-bottom: 12px;
+    }
+
+    ion-item ion-label.custom-label {
+        margin-top: 10px !important;
+    }
+
+    ::slotted(ion-label) {
+        margin-top: 12px !important;
+        margin-bottom: 12px !important;
+    }
+
+    ion-item.menu-item {
+        &.active, &.active:hover, &.active:focus {
+            --background: var(--ion-color-primary) !important;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            
+            ion-icon, p {
+                color: #ffffff !important;
+            }
+        }
+
+    }
+}
+

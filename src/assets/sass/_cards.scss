@@ -1,0 +1,55 @@
+ion-card {
+    &.plan-card {
+        cursor: pointer;
+        background-image: linear-gradient(to left,
+		transparent,
+		transparent 50%,
+		var(--ion-color-tertiary) 50%,
+		var(--ion-color-tertiary));
+		background-position: 100% 0;
+		background-size: 200% 100%;
+		transition: all .25s ease-in;
+        color: var(--ion-color-blue-badge);
+        
+        .heading {
+			font-weight: 600;
+		}
+
+		.dot-separator {
+			background: var(--ion-color-blue-badge); 
+		}
+
+		.icon-badge {
+			height: 40px;
+			width: 40px;
+			border-radius: 50%;
+			background: rgb(213, 239, 253);
+			padding-top: 13px;
+			padding-left: 13px;
+			display: inline-flex;
+        }
+        
+        &.active {
+            /* background-position: 0 0;
+            color: var(--ion-color-primary);
+    
+            .dot-separator {
+                background: var(--ion-color-primary); 
+            } */
+    
+            .icon-badge {
+				background: var(--ion-color-primary);
+				
+				ion-icon {
+					color: #ffffff;
+				}
+			}
+
+			hr {
+				background: var(--ion-color-primary) !important;
+			}
+			
+			border: 1px solid var(--ion-color-primary);
+        }
+    }
+}

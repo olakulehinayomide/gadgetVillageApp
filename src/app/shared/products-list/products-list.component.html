@@ -3,7 +3,7 @@
   <ion-row>
     <ion-col size="12" size-md="4" size-lg="3" *ngFor="let product of products">
       <ion-card class="product-list-card">
-        <a [routerLink]="['/products/' + product._id]"><ion-img src="/assets/imgs/phones/1.jpg"></ion-img></a>
+        <a [routerLink]="['/products/' + product._id]"><ion-img [src]="filesPath + product.avatars[0]"></ion-img></a>
         <div class="actions">
           <ion-grid no-padding>
             <ion-row>

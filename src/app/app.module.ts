@@ -11,7 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { iosTransitionAnimation } from '@ionic/core/dist/collection/utils/transition/ios.transition.js';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { UtilsModule } from './shared/utils/utils.module';
+import { HttpConfigInterceptor } from './services/http/httpconfig.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    UtilsModule,
     IonicModule.forRoot({
       navAnimation: iosTransitionAnimation,
     }),
@@ -31,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

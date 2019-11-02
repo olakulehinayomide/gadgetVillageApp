@@ -17,20 +17,19 @@ export class HomeService {
               private utils: UtilsService) {}
 
   getProducts(refresher?: any) {
-    this.utils.showLoader().then((loader) => {
-      this.httpProduct.getProducts().subscribe((response: IHttpResponse) => {
-        if (response.status === 'success') {
-          this.products = response.data;
-        } else {
-          this.utils.presentErrorToast(response.message);
-        }
-        this.utils.hideLoader();
-        if (refresher) {refresher.complete()}
-      }, (err: Error) => {
-        this.utils.hideLoader();
-        if (refresher) {refresher.complete()}
-        this.utils.presentErrorToast(err.message);
-      });
+    this.utils.showLoader();
+    this.httpProduct.getProducts().subscribe((response: IHttpResponse) => {
+      if (response.status === 'success') {
+        this.products = response.data;
+      } else {
+        this.utils.presentErrorToast(response.message);
+      }
+      this.utils.hideLoader();
+      if (refresher) {refresher.complete()}
+    }, (err: Error) => {
+      this.utils.hideLoader();
+      if (refresher) {refresher.complete()}
+      this.utils.presentErrorToast(err.message);
     });
   }
 
